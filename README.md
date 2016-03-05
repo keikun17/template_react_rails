@@ -1,24 +1,15 @@
-## README
+What to do next:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+  - Ensure your bundle and npm are up to date.
 
-Things you may want to cover:
+      bundle && npm i
 
-* Ruby version
+  - Run the npm rails-server command to load the rails server.
 
-* System dependencies
+      npm run rails-server
 
-* Configuration
+  - Visit http://localhost:3000/hello_world and see your React On Rails app running!
 
-* Database creation
+  - Run the npm express-server command to load the node server with hot reloading support.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+      npm run express-server
