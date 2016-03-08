@@ -50,3 +50,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'react_on_rails', '~> 3'
 
 gem 'bootstrap-sass'
+
+gem 'devise', :github => 'plataformatec/devise', :branch => 'master'
