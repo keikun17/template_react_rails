@@ -2,7 +2,21 @@ body{
   height: 100%;
 }
 
+.header{
+  display: flex;
+  flex-direction: row;
+}
+
 .container {
   display: flex;
   flex-direction: column;
 }
+
+.content {
+  display:flex;
+  flex-direction: row;
+}
+
+
+.sidebar{}
+
