@@ -13,8 +13,8 @@ What to do next:
 - Run the npm rails-server command to load the rails server (localhost:3000)
 
 ````
-    # Runs foreman
-    # foreman loads  Procfile
+    # `npm run rails-server` Runs foreman
+    # foreman loads Procfile
     # Procfile contains configs for web (rails) and client(webpack)
     npm run rails-server
 ```
