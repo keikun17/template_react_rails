@@ -7,59 +7,59 @@
       = link_to "Sign out", destroy_user_session_path, method: :delete
 
   .content
-    .contacts
-      %h2 Contacts
-
-      .add-contacts
-        = form_tag('', remote: true, method: :post, data: {behavior: 'user_add_friend'}) do
-          = text_field_tag :contact_name
-          = submit_tag "Add", data:{ disable_with: "Adding"}
-
-      .matches
-        %span.invite-requests Invites pending ({current_user.invitations.count})
-
-        %h3 Playing Similar Games
-
-        .contact
-          .name PlayerTwo
-          .playing
-            .game Diablo
-            .game Starcraft 2
-            .game Heroes of the Storm
-
-        .contact
-          .name PlayerThree
-          .playing
-            .game Diablo
-            .game Starcraft 2
-
-        .contact
-          .name PlayerFour
-          .playing
-            .game CounterStrike
-
-        .contact
-          .name PlayerFive
-          .playing
-            .game Diablo 3
-            .game Starcraft 2
-            .game Counterstrike
-
-      .others
-        %h3 Contacts playing other games
-        .contact
-          .name PlayerSix
-          .playing
-            .game Dota 2
-        .contact
-          .name PlayerSeven
-          .playing
-            .game TitanFall
+    -# .contacts
+    -#   %h2 Contacts
+    -#
+    -#   .add-contacts
+    -#     = form_tag('', remote: true, method: :post, data: {behavior: 'user_add_friend'}) do
+    -#       = text_field_tag :contact_name
+    -#       = submit_tag "Add", data:{ disable_with: "Adding"}
+    -#
+    -#   .matches
+    -#     %span.invite-requests Invites pending ({current_user.invitations.count})
+    -#
+    -#     %h3 Playing Similar Games
+    -#
+    -#     .contact
+    -#       .name PlayerTwo
+    -#       .playing
+    -#         .game Diablo
+    -#         .game Starcraft 2
+    -#         .game Heroes of the Storm
+    -#
+    -#     .contact
+    -#       .name PlayerThree
+    -#       .playing
+    -#         .game Diablo
+    -#         .game Starcraft 2
+    -#
+    -#     .contact
+    -#       .name PlayerFour
+    -#       .playing
+    -#         .game CounterStrike
+    -#
+    -#     .contact
+    -#       .name PlayerFive
+    -#       .playing
+    -#         .game Diablo 3
+    -#         .game Starcraft 2
+    -#         .game Counterstrike
+    -#
+    -#   .others
+    -#     %h3 Contacts playing other games
+    -#     .contact
+    -#       .name PlayerSix
+    -#       .playing
+    -#         .game Dota 2
+    -#     .contact
+    -#       .name PlayerSeven
+    -#       .playing
+    -#         .game TitanFall
 
     .games
       %h2 Select Games
       .selection
-        = form_tag('', remote: true, method: 'patch', data: {behavior: 'user_add_game'}) do
+        = form_tag(update_games_user_path(current_user), remote: true, method: 'patch', data: {behavior: 'user_add_game'}) do
           = select_tag :game_id, options_for_select( Game.all.collect{|g| [g.name, g.id]} )
           = submit_tag "Add", data:{ disable_with: "Adding"}
       .tracking
