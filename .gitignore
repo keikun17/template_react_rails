@@ -29,4 +29,5 @@ node_modules
 /app/assets/javascripts/generated/*
 
 client/npm-debug*
+client/node_modules
 client/node_modules/*
