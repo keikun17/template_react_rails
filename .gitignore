@@ -7,7 +7,7 @@
 # Ignore bundler config.
 /.bundle
 
-.git
+# .git
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -28,6 +28,5 @@ node_modules
 # Generated js bundles
 /app/assets/javascripts/generated/*
 
-client/npm-debug*
-client/node_modules
-client/node_modules/*
+/client/npm-debug*
+/client/node_modules/*

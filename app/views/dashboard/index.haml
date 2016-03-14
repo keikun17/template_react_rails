@@ -1,5 +1,6 @@
 .container
   -# = react_component('Something', {name: 'Mario'}, {prerender: true})
+  = react_component('GamesFormApp')
   .header
     .username
       = current_user.email
@@ -62,7 +63,7 @@
         = form_tag(update_games_user_path(current_user), remote: true, method: 'patch', data: {behavior: 'user_add_game'}) do
           = select_tag :game_id, options_for_select( Game.all.collect{|g| [g.name, g.id]} )
           = submit_tag "Add", data:{ disable_with: "Adding"}
-      .tracking
+      #tracking
         - current_user.games.each do |game|
           .game= game.name
 

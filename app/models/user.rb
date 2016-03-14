@@ -5,4 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_and_belongs_to_many :games, -> { distinct }
+
+  def add_game(game)
+    self.games << (game)
+    UserGamesJob.perform_later(self)
+  end
 end

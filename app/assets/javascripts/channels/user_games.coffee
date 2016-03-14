@@ -7,3 +7,4 @@ App.user_games = App.cable.subscriptions.create "UserGamesChannel",
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
+    $('#tracking').replace("#{event.message}")
