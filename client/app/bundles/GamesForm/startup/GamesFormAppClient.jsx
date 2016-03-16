@@ -12,7 +12,7 @@ export default (props) => {
   const store = createStore(props);
   const reactComponent = (
     <Provider store={store}>
-      <HelloWorld />
+      <GamesForm  />
     </Provider>
   );
   return reactComponent;
