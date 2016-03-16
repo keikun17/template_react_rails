@@ -2,8 +2,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import createStore from '../store/helloWorldStore';
-import HelloWorld from '../containers/HelloWorld';
+import createStore from '../store/gamesFormStore';
+import GamesForm from '../containers/GamesForm';
 
 // See documentation for https://github.com/reactjs/react-redux.
 // This is how you get props from the Rails view into the redux store.
