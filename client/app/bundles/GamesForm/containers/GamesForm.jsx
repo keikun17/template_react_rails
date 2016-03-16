@@ -29,7 +29,7 @@ class GamesForm extends React.Component {
 
   render() {
     const { dispatch, $$gamesFormStore } = this.props;
-    const actions = bindActionCreators(gameFormActionCreators, dispatch);
+    const actions = bindActionCreators(gamesFormActionCreators, dispatch);
     const { updateGames } = actions;
     const games = $$gamesFormStore.get('games');
 

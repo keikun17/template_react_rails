@@ -8,10 +8,11 @@ html
 
     h1.alert.alert-info.this-works webpack dev server (with HMR)
     #app
+    #app2
 
     script(src="vendor-bundle.js")
     script(src="app-bundle.js")
     script.
       ReactOnRails.render("HelloWorldApp", {name: "Stranger"}, 'app');
     script.
-      ReactOnRails.render("GamesFormApp", {games: ['kek', 'bur']}, 'app');
+      ReactOnRails.render("GamesFormApp", {games: ['kek', 'bur']}, 'app2');
