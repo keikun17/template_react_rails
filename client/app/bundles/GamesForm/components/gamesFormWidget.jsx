@@ -15,6 +15,7 @@ export default class gamesFormWidget extends React.Component {
   };
 
   constructor(props, context) {
+    console.log("inside the widget constructor")
     super(props, context);
 
     // Uses lodash to bind all methods to the context of the object instance, otherwise
@@ -30,11 +31,12 @@ export default class gamesFormWidget extends React.Component {
   }
 
   render() {
+    console.log("before rendering widget")
     const { games } = this.props;
     return (
       <div className="container">
         <h3>
-          Hello, {games}!
+          Laro , {games}!
         </h3>
         <hr/>
         <form className="form-horizontal">

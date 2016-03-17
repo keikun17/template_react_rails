@@ -31,13 +31,14 @@ class GamesForm extends React.Component {
     const { dispatch, $$gamesFormStore } = this.props;
     const actions = bindActionCreators(gamesFormActionCreators, dispatch);
     const { updateGames } = actions;
-    const games = $$gamesFormStore.get('games');
+    const games = $$gamesFormStore.get('games').map((v)  => v).join()
 
     // This uses the ES2015 spread operator to pass properties as it is more DRY
     // This is equivalent to:
     // <gamesFormWidget $$gamesFormStore={$$gamesFormStore} actions={actions} />
+    console.log("before rendering container" )
     return (
-      <gamesFormWidget {...{ updateGames, games }} />
+      <GamesFormWidget {...{ updateGames, games }} />
     );
   }
 }
