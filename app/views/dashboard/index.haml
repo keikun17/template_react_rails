@@ -1,6 +1,7 @@
 .container
   -# = react_component('Something', {name: 'Mario'}, {prerender: true})
-  = react_component('GamesFormApp')
+  -# = react_component('HelloWorldApp')
+  = react_component('GamesFormApp', {games: ['kek', 'bur']})
   .header
     .username
       = current_user.email
