@@ -27,7 +27,7 @@ export default class gamesFormWidget extends React.Component {
   // React will automatically provide us with the event `e`
   handleChange(e) {
     const games = e.target.value;
-    this.props.updategames(games);
+    this.props.updateGames(games);
   }
 
   render() {
