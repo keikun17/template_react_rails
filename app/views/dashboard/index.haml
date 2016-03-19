@@ -1,7 +1,7 @@
 .container
   -# = react_component('Something', {name: 'Mario'}, {prerender: true})
   -# = react_component('HelloWorldApp')
-  = react_component('GamesFormApp', {games: ['kek', 'bur']})
+  = react_component('GamesFormApp', {games: @games.collect(&:name)})
   .header
     .username
       = current_user.email

@@ -11,7 +11,7 @@ export default class gamesFormWidget extends React.Component {
     // If you have lots of data or action properties, you should consider grouping them by
     // passing two properties: "data" and "actions".
     updateGames: PropTypes.func.isRequired,
-    games: PropTypes.string.isRequired,
+    games: PropTypes.array.isRequired,
   };
 
   constructor(props, context) {
@@ -30,6 +30,13 @@ export default class gamesFormWidget extends React.Component {
     this.props.updateGames(games);
   }
 
+
+  handleSubmit(e) {
+    e.preventDefault()
+    const games = e.target.value;
+    this.props.updateGames(games);
+  }
+
   render() {
     console.log("before rendering widget")
     const { games } = this.props;
@@ -39,7 +46,15 @@ export default class gamesFormWidget extends React.Component {
           Laro , {games}!
         </h3>
         <hr/>
-        <form className="form-horizontal">
+        <form className="form-horizontal"
+          onSubmit={this.handleSubmit}>
+          <select>
+            {games.map((game) => {
+              return <option value={game}>{game}</option>
+             })
+            }
+
+          </select>
             <Input
               type="text"
               labelClassName="col-sm-2"

@@ -31,7 +31,7 @@ class GamesForm extends React.Component {
     const { dispatch, $$gamesFormStore } = this.props;
     const actions = bindActionCreators(gamesFormActionCreators, dispatch);
     const { updateGames } = actions;
-    const games = $$gamesFormStore.get('games').map((v)  => v).join()
+    const games = $$gamesFormStore.get('games').toArray()
 
     // This uses the ES2015 spread operator to pass properties as it is more DRY
     // This is equivalent to:
