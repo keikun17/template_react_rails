@@ -11,6 +11,7 @@ export default class gamesFormWidget extends React.Component {
     // If you have lots of data or action properties, you should consider grouping them by
     // passing two properties: "data" and "actions".
     updateGames: PropTypes.func.isRequired,
+    addGame: PropTypes.func.isRequired,
     games: PropTypes.array.isRequired,
     form_authenticity_token: PropTypes.string.isRequired,
   };
@@ -23,6 +24,8 @@ export default class gamesFormWidget extends React.Component {
     // the methods defined here would not refer to the component's class, not the component
     // instance itself.
     _.bindAll(this, 'handleChange');
+    _.bindAll(this, 'handleSubmit');
+    _.bindAll(this, 'getFormData');
   }
 
   // React will automatically provide us with the event `e`
@@ -34,8 +37,16 @@ export default class gamesFormWidget extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    const games = e.target.value;
-    this.props.updateGames(games);
+    const game = this.getFormData()['game']
+    this.props.addGame(game, this.props.games);
+  }
+
+  getFormData() {
+    var data = {
+      game: this.refs.game.value
+    }
+
+    return data
   }
 
   render() {
@@ -50,7 +61,7 @@ export default class gamesFormWidget extends React.Component {
         <form className="form-horizontal"
           onSubmit={this.handleSubmit}>
           <input name="form_authenticity_token" type="hidden" value={form_authenticity_token} />
-          <select>
+          <select ref="game">
             {games.map((game) => {
               return <option value={game} key={game}>{game}</option>
              })

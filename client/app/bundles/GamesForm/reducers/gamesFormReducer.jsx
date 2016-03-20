@@ -7,11 +7,15 @@ export const $$initialState = Immutable.fromJS({
 });
 
 export default function gamesFormReducer($$state = $$initialState, action) {
-  const { type, games } = action;
+  const { type, games, game } = action;
 
   switch (type) {
     case actionTypes.GAMES_FORM_GAMES_UPDATE:
       return $$state.set('games', games)
+    case actionTypes.GAMES_FORM_GAMES_ADD:
+      debugger
+      const new_games = games + games
+      return $$state.set('games', new_games)
 
     default:
       return $$state;
