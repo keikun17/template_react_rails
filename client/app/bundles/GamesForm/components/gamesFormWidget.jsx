@@ -12,6 +12,7 @@ export default class gamesFormWidget extends React.Component {
     // passing two properties: "data" and "actions".
     updateGames: PropTypes.func.isRequired,
     games: PropTypes.array.isRequired,
+    form_authenticity_token: PropTypes.string.isRequired,
   };
 
   constructor(props, context) {
@@ -39,7 +40,7 @@ export default class gamesFormWidget extends React.Component {
 
   render() {
     console.log("before rendering widget")
-    const { games } = this.props;
+    const { games, form_authenticity_token } = this.props;
     return (
       <div className="container">
         <h3>
@@ -48,21 +49,16 @@ export default class gamesFormWidget extends React.Component {
         <hr/>
         <form className="form-horizontal"
           onSubmit={this.handleSubmit}>
+          <input name="form_authenticity_token" type="hidden" value={form_authenticity_token} />
           <select>
             {games.map((game) => {
-              return <option value={game}>{game}</option>
+              return <option value={game} key={game}>{game}</option>
              })
             }
 
           </select>
-            <Input
-              type="text"
-              labelClassName="col-sm-2"
-              wrapperClassName="col-sm-10"
-              label="Say hello to:"
-              value={games}
-              onChange={this.handleChange}
-            />
+
+          <input name="commit" type="submit" value="Add" />
         </form>
       </div>
     );
