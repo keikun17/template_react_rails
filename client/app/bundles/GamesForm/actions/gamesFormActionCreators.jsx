@@ -7,10 +7,10 @@ export function updateGames(games) {
   };
 }
 
-export function addGame(game, games) {
+export function addGame(game, current_games) {
   return {
     type: actionTypes.GAMES_FORM_GAMES_ADD,
-    game, games
+    game, current_games
   };
 }
 

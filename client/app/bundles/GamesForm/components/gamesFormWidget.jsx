@@ -38,7 +38,7 @@ export default class gamesFormWidget extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     const game = this.getFormData()['game']
-    this.props.addGame(game, this.props.games);
+    this.props.addGame(game, this.props.current_games);
   }
 
   getFormData() {
@@ -73,9 +73,10 @@ export default class gamesFormWidget extends React.Component {
 
         <span>Current titles</span>
         <ul>
-          {current_games.map((game) => {
-            return <li key="c_{game}">{game}</li>
-          })
+          {current_games.map(
+            (game) => {
+              return <li key={'c_' + game}>{game}</li>
+            })
           }
         </ul>
 
