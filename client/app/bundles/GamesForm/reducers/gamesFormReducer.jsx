@@ -13,7 +13,6 @@ export default function gamesFormReducer($$state = $$initialState, action) {
     case actionTypes.GAMES_FORM_GAMES_UPDATE:
       return $$state.set('games', games)
     case actionTypes.GAMES_FORM_GAMES_ADD:
-      debugger
       const new_games = games + games
       return $$state.set('games', new_games)
 

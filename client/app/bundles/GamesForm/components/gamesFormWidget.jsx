@@ -51,11 +51,11 @@ export default class gamesFormWidget extends React.Component {
 
   render() {
     console.log("before rendering widget")
-    const { games, form_authenticity_token } = this.props;
+    const { games, current_games, form_authenticity_token } = this.props;
     return (
       <div className="container">
         <h3>
-          Laro , {games}!
+          Add titles
         </h3>
         <hr/>
         <form className="form-horizontal"
@@ -66,11 +66,19 @@ export default class gamesFormWidget extends React.Component {
               return <option value={game} key={game}>{game}</option>
              })
             }
-
           </select>
 
           <input name="commit" type="submit" value="Add" />
         </form>
+
+        <span>Current titles</span>
+        <ul>
+          {current_games.map((game) => {
+            return <li key="c_{game}">{game}</li>
+          })
+          }
+        </ul>
+
       </div>
     );
   }
