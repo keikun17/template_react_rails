@@ -7,4 +7,14 @@ class UserGamesChannel < ApplicationCable::Channel
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
   end
+
+  # --------------------------------------------------
+  # actions here
+  # --------------------------------------------------
+
+  def add_game
+    game = Game.find_by(name: data['game_name'])
+    current_user.games << game
+  end
+
 end
