@@ -1,0 +1,4 @@
+log/*.log
+vendor-bundle.js
+client/node_modules/*
+.git
