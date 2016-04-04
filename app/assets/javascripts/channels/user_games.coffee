@@ -10,3 +10,12 @@ App.user_games = App.cable.subscriptions.create "UserGamesChannel",
     $('#tracking').replace("#{event.message}")
 
   update: (data) ->
+
+  update: (reducer) ->
+
+  kek: ->
+    console.log("kek")
+
+  add_game: (game) ->
+    console.log("Adding game " + game)
+
