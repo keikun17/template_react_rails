@@ -16,6 +16,7 @@ App.user_games = App.cable.subscriptions.create "UserGamesChannel",
   kek: ->
     console.log("kek")
 
-  add_game: (game) ->
-    console.log("Adding game " + game)
+  add_game: (data) ->
+    console.log("Adding game " + data["game"])
+    @perform "add_game", game: data["game"]
 

@@ -12,8 +12,9 @@ class UserGamesChannel < ApplicationCable::Channel
   # actions here
   # --------------------------------------------------
 
-  def add_game(game_name, reducer)
-    game = Game.find_by(name: data['game_name'])
+  def add_game(data)
+    binding.pry
+    game = Game.find_by(name: data['game'])
     current_user.games << game
   end
 
