@@ -13,7 +13,8 @@ export default function gamesFormReducer($$state = $$initialState, action) {
     case actionTypes.GAMES_FORM_GAMES_UPDATE:
       return $$state.set('games', games)
     case actionTypes.GAMES_FORM_GAMES_ADD:
-      return $$state.set('current_games', current_games.concat(game))
+      // return $$state.set('current_games', current_games.concat(game))
+      App.user_games.add_game(game)
 
     default:
       return $$state;

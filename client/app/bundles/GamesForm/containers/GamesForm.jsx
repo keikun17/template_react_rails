@@ -30,7 +30,7 @@ class GamesForm extends React.Component {
   render() {
     const { dispatch, $$gamesFormStore} = this.props;
     const actions = bindActionCreators(gamesFormActionCreators, dispatch);
-    const { addGame, updateGames } = actions;
+    const { addGame } = actions;
     const games = $$gamesFormStore.get('games').toArray()
     const current_games = $$gamesFormStore.get('current_games')
     const form_authenticity_token = $$gamesFormStore.get('form_authenticity_token')
@@ -40,7 +40,7 @@ class GamesForm extends React.Component {
     // <gamesFormWidget $$gamesFormStore={$$gamesFormStore} actions={actions} />
     console.log("before rendering container" )
     return (
-      <GamesFormWidget {...{ updateGames, addGame, games, current_games, form_authenticity_token }} />
+      <GamesFormWidget {...{  addGame, games, current_games, form_authenticity_token }} />
     );
   }
 }
