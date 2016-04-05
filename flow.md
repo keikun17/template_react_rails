@@ -17,6 +17,7 @@ user clicks "add"
      step 4. and send a new list of games via dispatch to the reducer to update the list of games
 
      step 5. Actioncable will broadcast the result to the games channel and send the list of games as payload
+        ex command : ActionCable.server.broadcast 'contact_channel_test1', user: data['user'], game: data[]
 
      step 6. `app/assets/javascript/channel/channel_name.coffee` :
        -  `received` will hear the broadcast from step 5 and receive the payload (user's current games)
