@@ -7,14 +7,18 @@ export const $$initialState = Immutable.fromJS({
 });
 
 export default function gamesFormReducer($$state = $$initialState, action) {
-  const { type, games, game, current_games } = action;
+  const { type, games, game, cb, current_games } = action;
 
   switch (type) {
     case actionTypes.GAMES_FORM_GAMES_UPDATE:
       return $$state.set('games', games)
     case actionTypes.GAMES_FORM_GAMES_ADD:
       // return $$state.set('current_games', current_games.concat(game))
-      App.user_games.add_game(game)
+      var timestamp = Date.now(games)
+      App.approval[timestamp] = {game: game}
+      App.user_games.add_game({game: game,
+                              cb_action: actionTypes.GAMES_FORM_GAMES_ADD,
+                              reducer_cb: cb })
 
     default:
       return $$state;

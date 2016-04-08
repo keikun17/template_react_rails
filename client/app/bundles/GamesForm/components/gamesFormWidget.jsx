@@ -36,7 +36,8 @@ export default class gamesFormWidget extends React.Component {
     // Move this
     // 1. This calls the container's addGames function that was passed to this dumb component
     // 2. the Smart component (container) will call dispatch to the reducer
-    this.props.addGame({game: game});
+    var cb = function() { console.log("hello kek") }
+    this.props.addGame({game: game, cb: cb});
   }
 
   getFormData() {
