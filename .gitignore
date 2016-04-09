@@ -30,3 +30,6 @@ node_modules
 
 /client/npm-debug*
 /client/node_modules/*
+
+# Ignore notes
+mental_note.md
