@@ -11,9 +11,11 @@ export default class gamesFormWidget extends React.Component {
     // If you have lots of data or action properties, you should consider grouping them by
     // passing two properties: "data" and "actions".
     addGame: PropTypes.func.isRequired,
+    updateGamesList: PropTypes.func.isRequired,
     games: PropTypes.array.isRequired,
     current_games: PropTypes.array.isRequired,
     form_authenticity_token: PropTypes.string.isRequired,
+
   };
 
   constructor(props, context) {
@@ -32,12 +34,7 @@ export default class gamesFormWidget extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     const game = this.getFormData()['game']
-
-    // Move this
-    // 1. This calls the container's addGames function that was passed to this dumb component
-    // 2. the Smart component (container) will call dispatch to the reducer
-    var cb = function() { console.log("hello kek") }
-    this.props.addGame({game: game, cb: cb});
+    this.props.addGame({game: game, success: [this.props.updateGamesList]})
   }
 
   getFormData() {

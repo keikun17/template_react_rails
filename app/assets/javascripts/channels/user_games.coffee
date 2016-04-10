@@ -1,4 +1,11 @@
 App.user_games = App.cable.subscriptions.create "UserGamesChannel",
+
+  queue: {}
+
+  enqueue: (key, val) ->
+    this.queue[key] = val
+    return this.queue
+
   connected: ->
     # Called when the subscription is ready for use on the server
 
@@ -7,7 +14,10 @@ App.user_games = App.cable.subscriptions.create "UserGamesChannel",
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
-    $('#tracking').replace("#{event.message}")
+    switch data.type
+      when "GAME_ADDED"
+        cb_function = this.queue[data.timestamp][0]
+        cb_function(data.games)
 
   update: (data) ->
 
@@ -17,7 +27,9 @@ App.user_games = App.cable.subscriptions.create "UserGamesChannel",
     console.log("kek")
 
   add_game: (data) ->
-    debugger
     console.log("Adding game " + data["game"])
-    @perform "add_game", game: data["game"]
 
+    timestamp = Date.now()
+    this.enqueue(timestamp, data.success)
+
+    @perform "add_game", game: data["game"], timestamp: timestamp

@@ -6,6 +6,7 @@ import mirrorCreator from 'mirror-creator';
 const actionTypes = mirrorCreator([
   'GAMES_FORM_GAMES_UPDATE',
   'GAMES_FORM_GAMES_ADD',
+  'CABLE_UPDATE_GAMES_LIST',
 ]);
 
 // actionTypes = {GAMES_FORM_GAMES_UPDATE "GAMES_FORM_GAMES_UPDATE"}

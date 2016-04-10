@@ -28,7 +28,6 @@ class GamesForm extends React.Component {
   }
 
   render() {
-    debugger
     const { dispatch, $$gamesFormStore} = this.props;
     const actions = bindActionCreators(gamesFormActionCreators, dispatch);
     const { addGame, updateGamesList } = actions;
@@ -39,9 +38,8 @@ class GamesForm extends React.Component {
     // This uses the ES2015 spread operator to pass properties as it is more DRY
     // This is equivalent to:
     // <gamesFormWidget $$gamesFormStore={$$gamesFormStore} actions={actions} />
-    debugger
     return (
-      <GamesFormWidget {...{  addGame, games, current_games, form_authenticity_token }} />
+      <GamesFormWidget {...{  addGame, updateGamesList, games, current_games, form_authenticity_token }} />
     );
   }
 }
