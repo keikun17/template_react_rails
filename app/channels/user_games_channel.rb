@@ -15,7 +15,11 @@ class UserGamesChannel < ApplicationCable::Channel
   def add_game(data)
     game = Game.find_by(name: data['game'])
     current_user.games << game
-    ActionCable.server.broadcast "user_games-#{current_user.id}", games: current_user.games.map(&:name)
+    ActionCable.server.broadcast "user_games-#{current_user.id}",
+      games: current_user.games.map(&:name),
+      type: 'GAME_ADDED',
+      timestamp: data['timestamp']
+
   end
 
 end
