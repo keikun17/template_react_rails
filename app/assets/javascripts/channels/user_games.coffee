@@ -1,6 +1,6 @@
 App.user_games = App.cable.subscriptions.create "UserGamesChannel",
 
-  queue: {}
+  dispatchers: {}
 
   enqueue: (key, val) ->
     this.queue[key] = val
@@ -16,20 +16,12 @@ App.user_games = App.cable.subscriptions.create "UserGamesChannel",
     # Called when there's incoming data on the websocket for this channel
     switch data.type
       when "GAME_ADDED"
-        cb_function = this.queue[data.timestamp][0]
-        cb_function(data.games)
+        this.dispatchers.GamesFormDispatcher({type: "CABLE_UPDATE_GAMES_LIST", games: data.games})
 
   update: (data) ->
 
   update: (reducer) ->
 
-  kek: ->
-    console.log("kek")
-
   add_game: (data) ->
     console.log("Adding game " + data["game"])
-
-    timestamp = Date.now()
-    this.enqueue(timestamp, data.success)
-
-    @perform "add_game", game: data["game"], timestamp: timestamp
+    @perform "add_game", game: data["game"],  dispatcher: "GamesFormDispatcher"

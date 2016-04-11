@@ -25,6 +25,8 @@ class GamesForm extends React.Component {
 
   constructor(props, context) {
     super(props, context);
+    const { dispatch } = this.props;
+    App.user_games.dispatchers["GamesFormDispatcher"] = dispatch
   }
 
   render() {
