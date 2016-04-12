@@ -12,7 +12,6 @@ export default function gamesFormReducer($$state = $$initialState, action) {
   switch (type) {
     case actionTypes.GAMES_FORM_GAMES_ADD:
       // return $$state.set('current_games', current_games.concat(game))
-      var timestamp = Date.now(games)
       App.user_games.add_game({game: data.game,
                               cb_action: actionTypes.GAMES_FORM_GAMES_ADD
       })
