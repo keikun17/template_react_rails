@@ -31,7 +31,7 @@ class GameSelect extends React.Component {
 
   render() {
     const { dispatch, $$letsPlayStore} = this.props;
-    const actions = bindActionCreators(letsPlayActionCreators, dispatch);
+    const actions = bindActionCreators(gameSelectActionCreators, dispatch);
     const { addGame, updateGamesList } = actions;
     const games = $$letsPlayStore.get('games').toArray()
     const current_games = $$letsPlayStore.get('current_games')
