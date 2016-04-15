@@ -16,7 +16,7 @@ App.user_games = App.cable.subscriptions.create "UserGamesChannel",
     # Called when there's incoming data on the websocket for this channel
     switch data.type
       when "GAME_ADDED"
-        this.dispatchers.GamesSelectDispatcher({type: "CABLE_UPDATE_GAMES_LIST", games: data.games})
+        this.dispatchers.GameSelectDispatcher({type: "CABLE_UPDATE_GAMES_LIST", games: data.games})
 
   update: (data) ->
 
@@ -24,4 +24,4 @@ App.user_games = App.cable.subscriptions.create "UserGamesChannel",
 
   add_game: (data) ->
     console.log("Adding game " + data["game"])
-    @perform "add_game", game: data["game"],  dispatcher: "GamesSelectDispatcher"
+    @perform "add_game", game: data["game"],  dispatcher: "GameSelectDispatcher"
