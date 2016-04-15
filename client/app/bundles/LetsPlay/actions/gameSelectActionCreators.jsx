@@ -1,4 +1,4 @@
-import actionTypes from '../constants/gamesFormConstants';
+import actionTypes from '../constants/gameSelectConstants';
 
 export function updateGamesList(games) {
   return {
@@ -12,7 +12,7 @@ export function updateGamesList(games) {
 
 export function addGame(data) {
   return {
-    type: actionTypes.GAMES_FORM_GAMES_ADD,
+    type: actionTypes.GAME_SELECT_GAMES_ADD,
     data
   };
 }

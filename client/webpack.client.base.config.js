@@ -22,7 +22,7 @@ module.exports = {
     // webpack.rails.config
     app: [
       './app/bundles/HelloWorld/startup/clientRegistration',
-      './app/bundles/GamesForm/startup/clientRegistration',
+      './app/bundles/LetsPlay/startup/clientRegistration',
     ],
   },
   resolve: {

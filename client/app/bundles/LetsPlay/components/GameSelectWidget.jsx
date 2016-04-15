@@ -6,7 +6,7 @@ import _ from 'lodash';
 import { Input } from 'react-bootstrap';
 
 // Simple example of a React "dumb" component
-export default class gamesFormWidget extends React.Component {
+export default class gameSelectWidget extends React.Component {
   static propTypes = {
     // If you have lots of data or action properties, you should consider grouping them by
     // passing two properties: "data" and "actions".

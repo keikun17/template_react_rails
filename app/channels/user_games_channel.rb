@@ -18,7 +18,7 @@ class UserGamesChannel < ApplicationCable::Channel
     ActionCable.server.broadcast "user_games-#{current_user.id}",
       games: current_user.games.map(&:name),
       type: 'GAME_ADDED',
-      dispatcher:'GamesFormDispatcher'
+      dispatcher:'GameSelectDispatcher'
   end
 
 end
