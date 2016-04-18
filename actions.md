@@ -10,5 +10,5 @@
 [ ] F invite received
 [ ] F invite accepted (them)
 [ ] F invite accepted (user)
-[ ] user Ready time updated
+[-] user Ready time updated
 [ ] F ready time updated
