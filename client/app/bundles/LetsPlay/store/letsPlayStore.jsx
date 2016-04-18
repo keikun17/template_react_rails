@@ -34,5 +34,7 @@ export default props => {
   const storeCreator = composedStore(createStore);
   const store = storeCreator(reducer, initialState);
 
+  App.dispatch = store.dispatch
+
   return store;
 };

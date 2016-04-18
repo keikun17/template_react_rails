@@ -24,12 +24,6 @@ class GameSelect extends React.Component {
     // $$letsPlayStore: PropTypes.instanceOf(Immutable.Map).isRequired,
   };
 
-  constructor(props, context) {
-    super(props, context);
-    const { dispatch } = this.props;
-    App.user_games.dispatchers["GameSelectDispatcher"] = dispatch
-  }
-
   render() {
     const { dispatch, $$letsPlayStore} = this.props;
     const actions = bindActionCreators(gameSelectActionCreators, dispatch);
