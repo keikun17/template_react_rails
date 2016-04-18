@@ -15,12 +15,13 @@ function select(state) {
 class GameSelect extends React.Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
+    data: PropTypes.object.isRequired
 
     // This corresponds to the value used in function select above.
     // We prefix all property and variable names pointing to Immutable.js objects with '$$'.
     // This allows us to immediately know we don't call $$letsPlayStore['someProperty'], but
     // instead use the Immutable.js `get` API for Immutable.Map
-    $$letsPlayStore: PropTypes.instanceOf(Immutable.Map).isRequired,
+    // $$letsPlayStore: PropTypes.instanceOf(Immutable.Map).isRequired,
   };
 
   constructor(props, context) {
