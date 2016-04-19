@@ -27,6 +27,7 @@ export default props => {
     }),
   };
 
+
   const reducer = combineReducers(reducers);
   const composedStore = compose(
     applyMiddleware(thunkMiddleware, loggerMiddleware)

@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
-// import GameSelectWidget from '../components/GameSelectWidget';
-import GameSelectContainer from '../containers/GameSelectContainer';
+import GameSelectWidget from '../components/GameSelectWidget';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Immutable from 'immutable';
@@ -10,7 +9,7 @@ import * as readyFormActionCreators from '../actions/readyFormActionCreators';
 function select(state) {
   // Which part of the Redux global state does our component want to receive as props?
   // Note the use of `$$` to prefix the property name because the value is of type Immutable.js
-  return { $$letsPlayStore: state.$$letsPlayStore };
+  return { data: state.$$letsPlayStore };
 }
 
 // Simple example of a React "smart" component
@@ -39,7 +38,7 @@ class LetsPlayContainer extends React.Component {
     }, dispatch)
 
     return (
-      <GameSelectContainer {...{ actions, data } } />
+      <GameSelectWidget {...{ actions, data } } />
     );
   }
 }

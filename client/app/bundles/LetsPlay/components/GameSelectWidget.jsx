@@ -10,12 +10,15 @@ export default class gameSelectWidget extends React.Component {
   static propTypes = {
     // If you have lots of data or action properties, you should consider grouping them by
     // passing two properties: "data" and "actions".
-    addGame: PropTypes.func.isRequired,
-    updateGamesList: PropTypes.func.isRequired,
-    games: PropTypes.array.isRequired,
-    current_games: PropTypes.array.isRequired,
-    form_authenticity_token: PropTypes.string.isRequired,
 
+    // addGame: PropTypes.func.isRequired,
+    // updateGamesList: PropTypes.func.isRequired,
+    // games: PropTypes.array.isRequired,
+    // current_games: PropTypes.array.isRequired,
+    // form_authenticity_token: PropTypes.string.isRequired,
+
+    actions: PropTypes.object.isRequired,
+    data: PropTypes.object.isRequired,
   };
 
   constructor(props, context) {
@@ -32,9 +35,13 @@ export default class gameSelectWidget extends React.Component {
 
   // React will automatically provide us with the event `e`
   handleSubmit(e) {
+
+    const addGame = this.props.actions.addGame
+    const updateGamesList = this.props.actions.updateGamesList
+
     e.preventDefault()
     const game = this.getFormData()['game']
-    this.props.addGame({game: game, success: [this.props.updateGamesList]})
+    addGame({game: game, success: [updateGamesList]})
   }
 
   getFormData() {
@@ -49,7 +56,11 @@ export default class gameSelectWidget extends React.Component {
     console.log("before rendering widget")
     console.log("app room is")
     console.log(App.user_games)
-    // console.log(App.user_games.kek())
+
+    const games = this.props.data.get('games')
+    const current_games = this.props.data.get('current_games')
+    const form_authenticity_token = this.props.data.get('form_authenticity_token')
+
     return (
       <div className="container">
         <h3>
@@ -58,9 +69,9 @@ export default class gameSelectWidget extends React.Component {
         <hr/>
         <form className="form-horizontal"
           onSubmit={this.handleSubmit}>
-          <input name="form_authenticity_token" type="hidden" value={this.props.form_authenticity_token} />
+          <input name="form_authenticity_token" type="hidden" value={form_authenticity_token} />
           <select ref="game">
-            {this.props.games.map((game) => {
+            {games.map((game) => {
               return <option value={game} key={game}>{game}</option>
              })
             }
@@ -71,7 +82,7 @@ export default class gameSelectWidget extends React.Component {
 
         <span>Current titles</span>
         <ul>
-          {this.props.current_games.map(
+          {current_games.map(
             (game) => {
               return <li key={'c_' + game}>{game}</li>
             })
