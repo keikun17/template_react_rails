@@ -2,10 +2,10 @@
   -# = react_component('Something', {name: 'Mario'}, {prerender: true})
   -# = react_component('HelloWorldApp')
   = react_component('LetsPlayApp', {games: @games.collect(&:name), current_games: @current_games.collect(&:name),  form_authenticity_token: form_authenticity_token})
-  #ready_form
-    I will ready in
-    = text_field_tag "ready_in"
-    = button_tag "READY"
+  -# #ready_form
+  -#   I will ready in
+  -#   = text_field_tag "ready_in"
+  -#   = button_tag "READY"
   #add_friend_form
     %h2 Add friend
     = text_field_tag "add_friend"

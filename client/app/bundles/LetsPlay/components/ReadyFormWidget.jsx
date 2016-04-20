@@ -10,8 +10,10 @@ export default class readyFormWidget extends React.Component {
   static propTypes = {
     // If you have lots of data or action properties, you should consider grouping them by
     // passing two properties: "data" and "actions".
-    ready_in: PropTypes.string.isRequired,
-    form_authenticity_token: PropTypes.string.isRequired,
+    actions: PropTypes.object.isRequired,
+    data: PropTypes.object.isRequired,
+    // ready_in: PropTypes.string.isRequired,
+    // form_authenticity_token: PropTypes.string.isRequired,
 
   };
 
@@ -47,7 +49,7 @@ export default class readyFormWidget extends React.Component {
     return (
       <div className="container">
         <h3>
-          Add titles
+          I will be ready in
         </h3>
         <hr/>
         <form className="form-horizontal"

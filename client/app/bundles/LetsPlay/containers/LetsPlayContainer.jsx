@@ -1,8 +1,11 @@
 import React, { PropTypes } from 'react';
-import GameSelectWidget from '../components/GameSelectWidget';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Immutable from 'immutable';
+
+import GameSelectWidget from '../components/GameSelectWidget';
+import ReadyFormWidget from '../components/ReadyFormWidget';
+
 import * as gameSelectActionCreators from '../actions/gameSelectActionCreators';
 import * as readyFormActionCreators from '../actions/readyFormActionCreators';
 
@@ -38,7 +41,10 @@ class LetsPlayContainer extends React.Component {
     }, dispatch)
 
     return (
-      <GameSelectWidget {...{ actions, data } } />
+      <div>
+        <GameSelectWidget {...{ actions, data } } />
+        <ReadyFormWidget {...{ actions, data } } />
+      </div>
     );
   }
 }
