@@ -2,10 +2,6 @@ App.user_games = App.cable.subscriptions.create "UserGamesChannel",
 
   dispatchers: {}
 
-  enqueue: (key, val) ->
-    this.queue[key] = val
-    return this.queue
-
   connected: ->
     # Called when the subscription is ready for use on the server
 
