@@ -20,4 +20,11 @@ class UserGamesChannel < ApplicationCable::Channel
       type: 'GAME_ADDED'
   end
 
+  def update_ready_in(data)
+    console.log("[me] backend saving of the ready_in value  ")
+    ActionCable.server.broadcast "user_games-#{current_user.id}",
+      games: current_user.games.map(&:name),
+      type: 'CABLE_UPDATE_USER_READY'
+  end
+
 end

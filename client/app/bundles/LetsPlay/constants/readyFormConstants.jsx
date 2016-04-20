@@ -5,6 +5,8 @@ import mirrorCreator from 'mirror-creator';
 
 const actionTypes = mirrorCreator([
   'READY_USER_UPDATE',
+  'CABLE_UPDATE_USER_READY'
+
 ]);
 
 // actionTypes = {GAMES_SELECT_GAMES_UPDATE "GAMES_SELECT_GAMES_UPDATE"}

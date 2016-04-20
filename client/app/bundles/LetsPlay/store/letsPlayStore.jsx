@@ -15,16 +15,27 @@ import { initialStates } from '../reducers';
 
 export default props => {
   // This is how we get initial props Rails into redux.
-  const { games, form_authenticity_token, current_games } = props;
-  const { $$letsPlayState } = initialStates;
+  const { games, form_authenticity_token, current_games, ready_in } = props;
+
+  // const { $$letsPlayState } = initialStates;
+  // changed to :
+  const { $$gameSelectState, $$readyFormState } = initialStates;
 
   // Redux expects to initialize the store using an Object, not an Immutable.Map
   const initialState = {
-    $$letsPlayStore: $$letsPlayState.merge({
-      games,
-      form_authenticity_token,
-      current_games,
-    }),
+
+    // ME : looks like this is where the custom $$XXXStores are defined
+    $$letsPlayStore: {
+      $$gameSelectStore: $$gameSelectState.merge({
+        games,
+        form_authenticity_token,
+        current_games,
+      }),
+
+      $$readyFormStore: $$readyFormState.merge({
+        ready_in,
+      }),
+    }
   };
 
 

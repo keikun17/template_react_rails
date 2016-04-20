@@ -1,4 +1,4 @@
-[x] Add G
+[x] Add Game (GAME_SELECT_GAMES_ADD => CABLE_UPDATE_GAMES_LIST)
 [ ] Remove G
 [ ] F Add G
 [ ] F Remove G
@@ -10,5 +10,5 @@
 [ ] F invite received
 [ ] F invite accepted (them)
 [ ] F invite accepted (user)
-[-] user Ready time updated
+[-] user Ready time updated : (READY_USER_UPDATE => CABLE_UPDATE_USER_READY)
 [ ] F ready time updated

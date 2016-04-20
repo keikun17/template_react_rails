@@ -11,12 +11,11 @@ export default function gameSelectReducer($$state = $$initialState, action) {
 
   switch (type) {
     case actionTypes.GAME_SELECT_GAMES_ADD:
-      // return $$state.set('current_games', current_games.concat(game))
       App.user_games.add_game({game: data.game})
 
     case actionTypes.CABLE_UPDATE_GAMES_LIST:
       return $$state.set('current_games', games)
-      // return $$state.set('current_games', ['kek','bur'])
+
     default:
       return $$state;
   }

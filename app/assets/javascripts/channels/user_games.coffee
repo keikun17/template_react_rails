@@ -21,3 +21,9 @@ App.user_games = App.cable.subscriptions.create "UserGamesChannel",
   add_game: (data) ->
     console.log("Adding game " + data["game"])
     @perform "add_game", game: data["game"]
+
+  update_ready_in: (data) ->
+    console.log("[me] sending UPDATE READY IN message to the channel")
+    @perform "update_ready_in", ready_in: data["ready_in"]
+
+

@@ -30,22 +30,27 @@ export default class readyFormWidget extends React.Component {
   }
 
   // React will automatically provide us with the event `e`
-  // handleSubmit(e) {
-  //   e.preventDefault()
-  //   const game = this.getFormData()['game']
-  //   this.props.addGame({game: game, success: [this.props.updateGamesList]})
-  // }
+  handleSubmit(e) {
+    const ready_in = this.getFormData()['ready_in']
+    const readyUpdate = this.props.actions.readyUpdate
+    const cableReadyUpdate = this.props.actions.cableReadyUpdate
 
-  // getFormData() {
-  //   var data = {
-  //     game: this.refs.game.value
-  //   }
-  //
-  //   return data
-  // }
+    e.preventDefault()
+    readyUpdate({ready_in: ready_in, success: [cableReadyUpdate]})
+  }
+
+  getFormData() {
+    var data = {
+      ready_in: this.refs.ready_in.value
+    }
+
+    return data
+  }
 
   render() {
     console.log("before rendering widget")
+
+    const ready_in = this.props.data.get('ready_in')
     return (
       <div className="container">
         <h3>
@@ -55,12 +60,12 @@ export default class readyFormWidget extends React.Component {
         <form className="form-horizontal"
           onSubmit={this.handleSubmit}>
           <input name="form_authenticity_token" type="hidden" value={this.props.form_authenticity_token} />
-          <input type="text" ref="game" />
-          <input name="commit" type="submit" value="Add" />
+          <input type="text" ref="ready_in" />
+          <input name="commit" type="submit" value="Update" />
         </form>
 
         <span>You will go online in</span>
-        <ul> {this.props.ready_in} </ul>
+        <ul> {ready_in} </ul>
       </div>
     );
   }
