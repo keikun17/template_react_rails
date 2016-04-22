@@ -11,15 +11,13 @@ import thunkMiddleware from 'redux-thunk';
 import loggerMiddleware from 'lib/middlewares/loggerMiddleware';
 
 import reducers from '../reducers';
-import { initialStates } from '../reducers';
+import { $$initialStates } from '../reducers';
 
 export default props => {
   // This is how we get initial props Rails into redux.
   const { games, form_authenticity_token, current_games, ready_in } = props;
 
-  // const { $$letsPlayState } = initialStates;
-  // changed to :
-  const { $$gameSelectState, $$readyFormState } = initialStates;
+  const { $$gameSelectState, $$readyFormState } = $$initialStates;
 
   // Redux expects to initialize the store using an Object, not an Immutable.Map
   const initialState = {

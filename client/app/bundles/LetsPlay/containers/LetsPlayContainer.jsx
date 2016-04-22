@@ -12,7 +12,6 @@ import * as readyFormActionCreators from '../actions/readyFormActionCreators';
 function select(state) {
   // Which part of the Redux global state does our component want to receive as props?
   // Note the use of `$$` to prefix the property name because the value is of type Immutable.js
-  debugger
   return { data: state.$$letsPlayStore };
 }
 

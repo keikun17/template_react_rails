@@ -9,7 +9,7 @@ import { $$initialState as $$gameSelectState } from './gameSelectReducer';
 
 import actionTypes from '../constants/gameSelectConstants';
 
-export const initialStates = {
+export const $$initialStates = {
   $$gameSelectState,
   $$readyFormState
 };
