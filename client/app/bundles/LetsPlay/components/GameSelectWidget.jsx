@@ -23,7 +23,6 @@ export default class gameSelectWidget extends React.Component {
 
   constructor(props, context) {
     console.log("inside the widget constructor")
-    debugger
     super(props, context);
 
     // Uses lodash to bind all methods to the context of the object instance, otherwise
